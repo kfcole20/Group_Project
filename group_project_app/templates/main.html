@@ -62,16 +62,16 @@
               </button>
             </form>
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="/logout"
                 ><button class="btn-danger logout-btn">Logout</button></a
               >
             </li>
           </div>
         </div>
       </nav>
-      <h1 class="welcome-msg">Welcome User!</h1>
+      <h1 class="welcome-msg">Welcome {{user.first_name}}!</h1>
       <div id="favorites">
-        <h2 id="main-page-title">User's Favorite Bars/Restaurants</h2>
+        <h2 id="main-page-title">{{user.first_name}}'s Favorite Bars/Restaurants</h2>
         <table class="table table-success table-striped">
           <thead>
             <tr>

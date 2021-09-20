@@ -1,7 +1,5 @@
 from django.db import models
 import re, bcrypt
-from django.db.models.deletion import CASCADE
-from django.db.models.fields.related import ManyToManyField
 
 
 # Create your models here.
@@ -15,9 +13,9 @@ class UserValidation(models.Manager):
             errors['name'] = 'Name entry not valid!'
         if not email_ver.match(post['email']):
             errors['email'] = 'Email format incorrect!'
-        if len(post['pw']) == 0:
-            errors['pw'] = 'Password needed to continue!'
-        elif post['pw'] != post['confirm_pw']:
+        if len(post['password']) == 0:
+            errors['password'] = 'Password needed to continue!'
+        elif post['password'] != post['confirm_password']:
             errors['password'] = 'Passwords must match!'
         return errors
 
@@ -25,13 +23,14 @@ class UserValidation(models.Manager):
     def verify(self, post):
         errors = {}
         user_logged = User.objects.filter(email=post['email'])
-        if len(post['email']) == 0:
+        if len(post['email']) == False:
             errors['email'] = 'Enter an email please!'
-        elif len(user_logged) == 0:
+        elif not user_logged:
             errors['no_user'] = 'No user with that email'
-        if len(post['pw']) == 0:
-            errors['pw'] = 'Password needed to continue!'
-        elif not bcrypt.checkpw(post['pw'].encode(), user_logged[0].pw.encode()):
+            return errors
+        if len(post['password']) == 0:
+            errors['password'] = 'Password needed to continue!'
+        elif not bcrypt.checkpw(post['password'].encode(), user_logged[0].password.encode()):
             errors['incorrect'] = 'Password/Email combination incorrect'
         return errors
 
