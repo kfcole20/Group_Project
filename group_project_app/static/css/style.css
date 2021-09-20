@@ -1,0 +1,29 @@
+body {
+  background-image: url(https://fox8.com/wp-content/uploads/sites/12/2020/07/GettyImages-978310990.jpg?w=2560&h=1440&crop=1);
+  background-repeat: no-repeat;
+  background-size: auto;
+  color: white;
+  font-family: "Lato", sans-serif;
+}
+
+.nav-spacing {
+  margin: 0 75px;
+}
+
+.search-bar {
+  margin: 0 50px;
+}
+
+.logout-btn:hover {
+  color: black;
+  background: orange;
+}
+
+.welcome-msg {
+  text-align: center;
+  margin: 30px 0 70px 0;
+}
+
+#favorites #main-page-title {
+  margin: 30px 0;
+}
