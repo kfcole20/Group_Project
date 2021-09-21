@@ -41,13 +41,26 @@ def logout(request):
     return redirect('/')    
 
 def main(request):
+    if 'id' not in request.session:
+        return redirect('/')
     context={
         'user':User.objects.get(id=request.session['id'])
     }
     return render(request, 'main.html', context)
 
+<<<<<<< HEAD
 def edit(request):
     context = {
         'user': User.objects.get(id=request.session['id'])
     }
     return render(request, 'edit.html', context)
+=======
+def bizdetails(request):
+    if 'id' not in request.session:
+        return redirect('/')
+    context={
+        # add business object and loop through until business in session is found
+        'user': User.objects.get(id=request.session['id'])
+    }
+    return render (request, 'details.html', context)
+>>>>>>> 677770c9e78dc95011d30a8591694eb4aeeb99fe
