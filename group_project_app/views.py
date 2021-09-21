@@ -50,4 +50,4 @@ def bizdetails(request):
     # context={
     #     add business object and loop through until business in session is found
     # }
-    return render (request, bizdetails.html)
+    return render (request, 'bizdetails.html')
