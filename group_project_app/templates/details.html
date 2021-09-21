@@ -50,12 +50,14 @@
                 <a class="nav-link nav-spacing" href="/account">Account</a>
               </li>
             </ul>
-            <form class="d-flex search-bar">
+            <form class="d-flex search-bar" action="/search" method="post">
+              {% csrf_token%}
               <input
                 class="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                name="search_space"
               />
               <button class="btn btn-outline-success" type="submit">
                 Search
