@@ -47,6 +47,7 @@ def main(request):
     return render(request, 'main.html', context)
 
 def bizdetails(request):
-    context={
-        'b'
-    }
+    # context={
+    #     add business object and loop through until business in session is found
+    # }
+    return render (request, bizdetails.html)
