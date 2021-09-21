@@ -24,7 +24,7 @@
     <div class="container-md">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Busy Buddy</a>
+          <a class="navbar-brand" href="/main">Busy Buddy</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -42,12 +42,12 @@
                 <a
                   class="nav-link active nav-spacing"
                   aria-current="page"
-                  href="#"
+                  href="/main"
                   >Home</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link nav-spacing" href="#">Account</a>
+                <a class="nav-link nav-spacing" href="/account">Account</a>
               </li>
             </ul>
             <form class="d-flex search-bar">
@@ -62,16 +62,25 @@
               </button>
             </form>
             <li class="nav-item">
-              <a class="nav-link" href="#"
+              <a class="nav-link" href="/logout"
                 ><button class="btn-danger logout-btn">Logout</button></a
               >
             </li>
           </div>
         </div>
       </nav>
-      <h1 class="welcome-msg">Welcome User!</h1>
+      <h1 class="welcome-msg">Welcome {{user.first_name}}!</h1>
       <div id="business-details">
-        <h2>Business Details</h2>
+        <h1>
+          Thanks for visiting {{Business.name}}'s page {{user.first_name}}!
+        </h1>
+        <h2>We are {{Business.busyStatus}} tonight!</h2>
+        <div class="businessdetails">
+          <hl>{{Business.name}}</hl>
+          <h2>{{Business.location}}</h2>
+          <h2>{{Business.rating}}</h2>
+        </div>
+        <a href="#">Add this {{Business.name}} to favorites.</a>
       </div>
     </div>
     <script
