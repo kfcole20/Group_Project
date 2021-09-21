@@ -48,6 +48,13 @@ def main(request):
     }
     return render(request, 'main.html', context)
 
+<<<<<<< HEAD
+def edit(request):
+    context = {
+        'user': User.objects.get(id=request.session['id'])
+    }
+    return render(request, 'edit.html', context)
+=======
 def bizdetails(request):
     if 'id' not in request.session:
         return redirect('/')
@@ -56,3 +63,4 @@ def bizdetails(request):
         'user': User.objects.get(id=request.session['id'])
     }
     return render (request, 'details.html', context)
+>>>>>>> 677770c9e78dc95011d30a8591694eb4aeeb99fe
