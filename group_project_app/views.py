@@ -45,13 +45,3 @@ def main(request):
         'user':User.objects.get(id=request.session['id'])
     }
     return render(request, 'main.html', context)
-
-def details(request):
-    context = {
-        'user': User.objects.get(id=request.session['id'])
-    }
-    return render(request, 'details.html', context)
-
-def account(request):
-    # this function will render account page
-    pass
