@@ -45,3 +45,9 @@ def main(request):
         'user':User.objects.get(id=request.session['id'])
     }
     return render(request, 'main.html', context)
+
+def edit(request):
+    context = {
+        'user': User.objects.get(id=request.session['id'])
+    }
+    return render(request, 'edit.html', context)
