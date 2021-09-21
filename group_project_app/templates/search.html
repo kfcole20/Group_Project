@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bar Buddy - Main</title>
+    <title>Search Results</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -74,22 +74,23 @@
       <h1 class="welcome-msg">Welcome {{user.first_name}}!</h1>
       <div id="favorites">
         <h2 id="main-page-title">
-          {{user.first_name}}'s Favorite Bars/Restaurants
+          A list of Bars and Restaurants Nearby
         </h2>
         <table class="table table-success table-striped">
           <thead>
             <tr>
               <th>Name of Business</th>
               <th>Location</th>
-              <th>Popularity</th>
+              <th>Rating(if applicable)</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
+            {% for location in locations%}
             <tr>
-              <td>The Craziest Bar Ever</td>
-              <td>123 Crazy St</td>
-              <td>Busy</td>
+              <td>{{location.name}}</td>
+              <td>{{location.formatted_address}}</td>
+              <td>{{location.rating}}</td>
               <td>
                 <div
                   class="btn-group"
@@ -108,7 +109,9 @@
                   >
                 </div>
               </td>
+              
             </tr>
+            {%endfor%}
           </tbody>
         </table>
       </div>
