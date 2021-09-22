@@ -91,3 +91,9 @@ def favorite(request, place_id):
         location=location['formatted_address'] )
     this_location.favorited_by.add(this_user)
     return redirect('/main')
+
+def account(request):
+    context = {
+        'user': User.objects.get(id=request.session['id'])
+    }
+    return render(request, 'edit.html', context)

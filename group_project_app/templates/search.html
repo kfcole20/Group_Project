@@ -39,10 +39,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a
-                  class="nav-link disabled nav-spacing"
-                  aria-current="page"
-                  href="/main"
+                <a class="nav-link nav-spacing" aria-current="page" href="/main"
                   >Home</a
                 >
               </li>
@@ -73,9 +70,7 @@
       </nav>
       <h1 class="welcome-msg">Welcome {{user.first_name}}!</h1>
       <div id="favorites">
-        <h2 id="main-page-title">
-          A list of Bars and Restaurants Nearby
-        </h2>
+        <h2 id="main-page-title">A list of Bars and Restaurants Nearby</h2>
         <table class="table table-success table-striped">
           <thead>
             <tr>
@@ -100,11 +95,6 @@
                   <a href="/details/{{location.place_id}}"
                     ><button type="button" class="btn btn-success">
                       Details
-                    </button></a
-                  >
-                  <a href="#"
-                    ><button type="button" class="btn btn-danger">
-                      Remove
                     </button></a
                   >
                 </div>

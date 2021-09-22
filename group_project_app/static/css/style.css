@@ -27,3 +27,8 @@ body {
 #favorites #main-page-title {
   margin: 30px 0;
 }
+
+.fav-btn:hover {
+  color: white;
+  background: green;
+}

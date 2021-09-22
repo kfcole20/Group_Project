@@ -10,4 +10,5 @@ urlpatterns=[
     path('details/<str:place_id>', views.bizdetails),
     path('search', views.search),
     path('favorite/<str:place_id>', views.favorite),
+    path('account', views.account),
 ]
