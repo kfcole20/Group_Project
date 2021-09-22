@@ -97,3 +97,20 @@ def account(request):
         'user': User.objects.get(id=request.session['id'])
     }
     return render(request, 'edit.html', context)
+
+def update(request):
+    errors = User.objects.edit(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/account')
+    if request.method != 'POST' or 'id' not in request.session:
+        return redirect('/')
+    else:
+        this_user = User.objects.get(id=request.session['id'])
+        this_user.first_name = request.POST['first_name']
+        this_user.last_name = request.POST['last_name']
+        this_user.email = request.POST['email']
+        this_user.password = request.POST['password']
+        this_user.save()
+        return redirect('/account')
