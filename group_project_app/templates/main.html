@@ -86,17 +86,20 @@
             </tr>
           </thead>
           <tbody>
+
+            {%for favorite in favorites%}
+            {%if favorite in user.favorite_bar.all%}
             <tr>
-              <td>The Craziest Bar Ever</td>
-              <td>123 Crazy St</td>
-              <td>Busy</td>
+              <td>{{favorite.name}}</td>
+              <td>{{favorite.location}}</td>
+              <td>{{favorite.rating}} stars</td>
               <td>
                 <div
                   class="btn-group"
                   role="group"
                   aria-label="Basic mixed styles example"
                 >
-                  <a href="/details"
+                  <a href="/details/{{favorite.place_id}}"
                     ><button type="button" class="btn btn-success">
                       Details
                     </button></a
@@ -109,6 +112,8 @@
                 </div>
               </td>
             </tr>
+            {%endif%}
+            {% endfor %}
           </tbody>
         </table>
       </div>
