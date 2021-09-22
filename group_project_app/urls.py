@@ -7,6 +7,6 @@ urlpatterns=[
     path('main', views.main),
     path('login', views.login),
     path('logout', views.logout),
-    path('details', views.bizdetails),
+    path('details/<str:place_id>', views.bizdetails),
     path('search', views.search)
 ]

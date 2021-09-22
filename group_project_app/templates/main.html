@@ -76,6 +76,7 @@
         <h2 id="main-page-title">
           {{user.first_name}}'s Favorite Bars/Restaurants
         </h2>
+        <h4>Start by searching with either zip code, city and state, or an exact address</h4>
         <table class="table table-success table-striped">
           <thead>
             <tr>
@@ -96,7 +97,7 @@
                   role="group"
                   aria-label="Basic mixed styles example"
                 >
-                  <a href="/details"
+                  <a href="/details/{{place_id}}"
                     ><button type="button" class="btn btn-success">
                       Details
                     </button></a
