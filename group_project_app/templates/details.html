@@ -74,16 +74,15 @@
       <h1 class="welcome-msg">Welcome {{user.first_name}}!</h1>
       <div id="business-details">
         <h1>
-          Thanks for visiting {{location.name}}'s page {{user.first_name}}!
+          Thanks for visiting {{Business.name}}'s page {{user.first_name}}!
         </h1>
-        <h2>We are currently rated {{location.rating}} stars!</h2>
-        <hr>
+        <h2>We are {{Business.busyStatus}} tonight!</h2>
         <div class="businessdetails">
-          <h1>{{location.name}}</h1>
-          <h2>{{location.formatted_address}}</h2>
-          <h3>{{location.rating}}</h3>
+          <hl>{{Business.name}}</hl>
+          <h2>{{Business.location}}</h2>
+          <h2>{{Business.rating}}</h2>
         </div>
-        <a href="#">Add {{location.name}} to favorites.</a>
+        <a href="#">Add this {{Business.name}} to favorites.</a>
       </div>
     </div>
     <script
