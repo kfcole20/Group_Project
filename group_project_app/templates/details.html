@@ -83,7 +83,9 @@
           <h2>{{location.formatted_address}}</h2>
           <h3>{{location.rating}}</h3>
         </div>
-        <a href="/favorite">Add {{location.name}} to favorites.</a>
+        <a href="/favorite/{{location.place_id}}"
+          >Add {{location.name}} to favorites.</a
+        >
       </div>
     </div>
     <script
