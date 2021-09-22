@@ -47,7 +47,8 @@ def main(request):
     if 'id' not in request.session:
         return redirect('/')
     context={
-        'user':User.objects.get(id=request.session['id'])
+        'user':User.objects.get(id=request.session['id']),
+        'favorites': Business.objects.all()
     }
     return render(request, 'main.html', context)
 
@@ -55,10 +56,12 @@ def bizdetails(request, place_id):
     if 'id' not in request.session:
         return redirect('/')
     client= GoogleMapsClient()
+    location =client.detail(place_id=place_id)['result']
+    location['place_id']=place_id
     context={
         # add business object and loop through until business in session is found
         'user': User.objects.get(id=request.session['id']),
-        'location': client.detail(place_id=place_id)['result']
+        'location': location
     }
     return render (request, 'details.html', context)
 
@@ -80,7 +83,11 @@ def search(request):
 def favorite(request, place_id):
     this_user = User.objects.get(id=request.session['id'])
     client = GoogleMapsClient()
-    location = client.detail(place_id=place_id)['result']['place_id']
-    this_location = Business.objects.create(favorited_by=this_user, name=location['name'], rating=location['rating'], place_id=location['place_id'], location=location['formatted_address'] )
+    location = client.detail(place_id=place_id)['result']
+    this_location = Business.objects.create( 
+        name=location['name'], 
+        rating=location['rating'], 
+        place_id=place_id, 
+        location=location['formatted_address'] )
     this_location.favorited_by.add(this_user)
     return redirect('/main')
