@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 import bcrypt, os
-from .models import User
+from .models import User, Business
 from .api import *
 from dotenv import load_dotenv
 load_dotenv()
@@ -76,3 +76,11 @@ def search(request):
         'user':User.objects.get(id=request.session['id'])
     }
     return render(request, 'search.html', context)
+
+def favorite(request, place_id):
+    this_user = User.objects.get(id=request.session['id'])
+    client = GoogleMapsClient()
+    location = client.detail(place_id=place_id)['result']['place_id']
+    this_location = Business.objects.create(favorited_by=this_user, name=location['name'], rating=location['rating'], place_id=location['place_id'], location=location['formatted_address'] )
+    this_location.favorited_by.add(this_user)
+    return redirect('/main')
