@@ -1,9 +1,5 @@
 from django.db import models
 import re, bcrypt
-
-from django.db.models.fields.related import ManyToManyField
-
-
 # Create your models here.
 
 class UserValidation(models.Manager):
@@ -49,7 +45,7 @@ class Business(models.Model):
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     rating = models.DecimalField(max_digits=3, decimal_places=2)
-    favorited_by = ManyToManyField(User, related_name='favorite_bar')
-    place_id = models.Charfield(max_length=30)
+    favorited_by = models.ManyToManyField(User, related_name='favorite_bar')
+    place_id = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
