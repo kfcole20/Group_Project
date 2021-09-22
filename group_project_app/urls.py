@@ -11,4 +11,5 @@ urlpatterns=[
     path('search', views.search),
     path('favorite/<str:place_id>', views.favorite),
     path('account', views.account),
+    path('update', views.update),
 ]

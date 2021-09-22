@@ -32,6 +32,17 @@ class UserValidation(models.Manager):
             errors['incorrect'] = 'Password/Email combination incorrect'
         return errors
 
+    def edit(self, post):
+        errors = {}
+        if len(post['first_name']) < 2:
+            errors['first_name'] = "First Name must have at least 2 characters"
+        if len(post['last_name']) < 2:
+            errors['last_name'] = "Last Name must have at least 2 characters"
+        if len(post['email']) < 2:
+            errors['first_name'] = "Email must have at least 2 characters"
+        return errors
+
+
 class User(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
