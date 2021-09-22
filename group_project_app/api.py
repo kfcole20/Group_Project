@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 #Google Maps Client API
+
 GOOGLE_API_KEY = str(os.getenv('GOOGLE_API_KEY'))
 class GoogleMapsClient(object):
     lat=None
