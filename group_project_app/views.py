@@ -51,20 +51,26 @@ def main(request):
     }
     return render(request, 'main.html', context)
 
-def bizdetails(request):
+def bizdetails(request, place_id):
     if 'id' not in request.session:
         return redirect('/')
+    client= GoogleMapsClient()
     context={
         # add business object and loop through until business in session is found
-        'user': User.objects.get(id=request.session['id'])
+        'user': User.objects.get(id=request.session['id']),
+        'location': client.detail(place_id=place_id)['result']
     }
     return render (request, 'details.html', context)
 
 def search(request):
+    if 'id' not in request.session:
+        return redirect('/')
     client= GoogleMapsClient()
     locations_list=[]
     for location in client.search(location=request.POST['search_space'])['results']:
-        locations_list.append(client.detail(place_id=location['place_id'])['result'])
+        new_location=client.detail(place_id=location['place_id'])['result']
+        new_location['place_id']=location['place_id']
+        locations_list.append(new_location)
     context={
         'locations':locations_list,
         'user':User.objects.get(id=request.session['id'])
