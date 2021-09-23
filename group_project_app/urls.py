@@ -12,4 +12,5 @@ urlpatterns=[
     path('favorite/<str:place_id>', views.favorite),
     path('account', views.account),
     path('update', views.update),
+    path('remove/<int:business_id>', views.delete_fav),
 ]

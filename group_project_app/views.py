@@ -114,3 +114,8 @@ def update(request):
         this_user.password = request.POST['password']
         this_user.save()
         return redirect('/account')
+
+def delete_fav(request, business_id):
+    business_to_delete = Business.objects.get(id = business_id)
+    business_to_delete.delete()
+    return redirect('/main')
