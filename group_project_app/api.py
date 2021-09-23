@@ -42,7 +42,7 @@ class GoogleMapsClient(object):
         self.lat=lat
         self.lng=lng
         return lat, lng
-    def search(self, keyword="Bars", radius=5000, location=None):
+    def search(self, keyword="Bars", radius=8100, location=None):
         lat, lng= self.lat, self.lng
         if location != None:
             lat, lng= self.extract_cords(location)
