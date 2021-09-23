@@ -33,13 +33,16 @@ class UserValidation(models.Manager):
         return errors
 
     def edit(self, post):
+        email_ver = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         errors = {}
         if len(post['first_name']) < 2:
             errors['first_name'] = "First Name must have at least 2 characters"
         if len(post['last_name']) < 2:
             errors['last_name'] = "Last Name must have at least 2 characters"
         if len(post['email']) < 2:
-            errors['first_name'] = "Email must have at least 2 characters"
+            errors['email_len'] = "Email must have at least 2 characters"
+        if not email_ver.match(post['email']):
+            errors['email'] = 'Email format incorrect!'    
         return errors
 
 

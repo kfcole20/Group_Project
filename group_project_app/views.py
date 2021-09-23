@@ -111,7 +111,10 @@ def update(request):
         this_user.first_name = request.POST['first_name']
         this_user.last_name = request.POST['last_name']
         this_user.email = request.POST['email']
-        this_user.password = request.POST['password']
+        if len(request.POST['password'])==0:
+            this_user.save()
+            return redirect('/account')
+        this_user.password = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt()).decode()
         this_user.save()
         return redirect('/account')
 
