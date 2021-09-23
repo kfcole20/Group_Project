@@ -81,8 +81,6 @@ def search(request):
     return render(request, 'search.html', context)
 
 def favorite(request, place_id):
-    if request.method != 'POST' or 'id' not in request.session:
-        return redirect('/')
     this_user = User.objects.get(id=request.session['id'])
     client = GoogleMapsClient()
     location = client.detail(place_id=place_id)['result']
