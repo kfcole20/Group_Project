@@ -121,8 +121,6 @@ def update(request):
         return redirect('/account')
 
 def delete_fav(request, business_id):
-    if request.method != 'POST' or 'id' not in request.session:
-        return redirect('/')
     business_to_delete = Business.objects.get(id = business_id)
     business_to_delete.delete()
     return redirect('/main')
