@@ -78,10 +78,10 @@
         </h1>
         <h2>We are currently rated {{location.rating}} stars!</h2>
         <hr />
-        <div class="businessdetails">
-          <h1>{{location.name}}</h1>
-          <h2>{{location.formatted_address}}</h2>
-          <h3>{{location.rating}}</h3>
+        <div class="business-details">
+          <h1>Business Name: <span class="details">{{location.name}}</span></h1>
+          <h2>Address: <span class="details">{{location.formatted_address}}</span></h2>
+          <h3>Rating: <span class="details">{{location.rating}}</span></h3>
         </div>
         <a href="/favorite/{{location.place_id}}"
           ><button class="btn btn-light fav-btn">

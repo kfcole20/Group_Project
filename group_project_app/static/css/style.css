@@ -28,7 +28,19 @@ body {
   margin: 30px 0;
 }
 
+.fav-btn {
+  margin: 20px 0;
+}
+
 .fav-btn:hover {
   color: white;
   background: green;
+}
+
+#business-details {
+  background: black;
+}
+
+.details {
+  color: red;
 }
