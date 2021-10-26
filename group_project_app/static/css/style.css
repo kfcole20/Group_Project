@@ -1,7 +1,7 @@
 body {
-  background-image: url(https://fox8.com/wp-content/uploads/sites/12/2020/07/GettyImages-978310990.jpg?w=2560&h=1440&crop=1);
+  background-image: url('../img/background.jpg');
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: cover;
   color: white;
   font-family: "Lato", sans-serif;
 }
