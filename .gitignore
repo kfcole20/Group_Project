@@ -38,5 +38,8 @@ ehthumbs.db
 Thumbs.db
 
 .env
+*.pyc
+venv/
+
 
 ----------------------------
