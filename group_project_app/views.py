@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 import bcrypt, os
 from .models import User, Business
-from .api import *
+from .api import GoogleMapsClient
 from dotenv import load_dotenv
 load_dotenv()
 
